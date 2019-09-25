@@ -34,7 +34,7 @@ module.exports = (string) => {
         num_returned,
         result_length,
         protocol,
-        took_millis,
+        took_millis
     });
 };
 
