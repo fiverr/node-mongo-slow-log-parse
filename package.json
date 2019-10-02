@@ -1,0 +1,35 @@
+{
+  "name": "mongo-slow-log-parse",
+  "version": "0.1.0",
+  "description": "📃 Parse Mongo slow logs lines",
+  "keywords": [
+    "mongo",
+    "mongodb",
+    "atlas",
+    "aws",
+    "log",
+    "slow-log",
+    "parse",
+    "extract",
+    "regex",
+    "📃"
+  ],
+  "author": "Fiverr DevOps",
+  "license": "MIT",
+  "homepage": "https://github.com/fiverr/node-mongo-slow-log-parse#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fiverr/node-mongo-slow-log-parse.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "jest -i",
+    "lint": "eslint '*.js' '**/*.js'"
+  },
+  "devDependencies": {
+    "@fiverr/eslint-config-fiverr": "^3.1.1",
+    "eslint": "^6.1.0",
+    "eslint-plugin-log": "^1.2.3",
+    "jest": "^24.8.0"
+  }
+}

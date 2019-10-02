@@ -1,0 +1,40 @@
+defaults: &defaults
+  working_directory: ~/app
+  docker:
+    - image: circleci/node:12
+
+version: 2
+jobs:
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: npm i
+      - run:
+          name: Test
+          command: npm t -- --verbose
+      - run:
+          name: Code linting
+          command: npm run lint -- --plugin log
+  release:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Set NPM tokens
+          command: echo -e $NPMRC > ~/.npmrc
+      - run:
+          name: Publish to NPM
+          command: npx published
+
+workflows:
+  version: 2
+  ci-cd:
+    jobs:
+      - test
+      - release:
+          context: org-global
+          requires:
+            - test
