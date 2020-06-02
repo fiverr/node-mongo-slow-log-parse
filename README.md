@@ -41,3 +41,4 @@ Result
 
 ### Related projects:
 - [RDS Slow Log line parser](https://github.com/fiverr/node-rds-slow-log-parse)
+- [ElasticSearch Slow Log line parser](https://github.com/fiverr/node-es-slow-log-parse)
