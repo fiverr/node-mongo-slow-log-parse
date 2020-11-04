@@ -3,11 +3,8 @@ const { pattern } = require('./lib/pattern');
 
 const NUMERIC_FIELDS = [
     'took_millis',
-    'num_returned',
     'num_yields',
-    'result_length',
-    'keys_examined',
-    'docs_examined'
+    'resp_length'
 ];
 
 module.exports = (string) => {
@@ -17,22 +14,18 @@ module.exports = (string) => {
         return {};
     }
 
-    const [, timestamp, severity, operation, connection_id, db_name, collection_name, general_command, mongo_command, keys_examined, docs_examined, num_yields, num_returned, result_length, protocol, took_millis] = match;
+    const [, timestamp, severity, operation, connection_id, namespace, command, action, num_yields, resp_length, protocol, took_millis] = match;
 
     return process({
         timestamp,
         severity,
         operation,
         connection_id,
-        db_name,
-        collection_name,
-        general_command,
-        mongo_command,
-        keys_examined,
-        docs_examined,
+        namespace,
+        command,
+        action,
         num_yields,
-        num_returned,
-        result_length,
+        resp_length,
         protocol,
         took_millis
     });
